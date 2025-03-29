@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .homeButton {
+            position: relative;
+            background-color: black;
+            padding: 0px;
+            margin: 30px;
+            border-radius: 30px;
+            border: 3px solid gray;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border 0.3s ease;
+        }
+
+        .homeButton:hover {
+            border: 3px solid yellow;
+            transform: scale(1.1);
+        }
+
+        .homeButton img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            object-fit: cover;
+        }
+
+        .homeButton img:hover {
+            opacity: 1;
+        }
+
+        .homeButtonTitle {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;  /* Adjust font size */
+            font-weight: bold;
+            text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
+            max-width: 80%;  /* Limit width to prevent overflow */
+            text-align: center;
+        }
+
+        .recently-played {
+            width: 300px;  /* Adjust width to make it square */
+            height: 300px;  /* Set fixed height to make it square */
+            background-color: black;
+            margin-top: 40px;
+            position: relative;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .recently-played-title {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .recent-buttons {
+            display: flex;
+            height: 100%;
+            flex-direction: column;  /* Stack buttons vertically */
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .big-recent-button {
+            width: 100%;  /* Ensure large button takes up the full width */
+            height: 60%;  /* Adjust the height ratio */
+            background-color: black;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid gray;
+        }
+
+        .small-recent-buttons {
+            display: flex;
+            justify-content: space-between;  /* Align buttons side by side */
+            height: 40%;  /* Adjust the height ratio */
+        }
+
+        .small-recent-button {
+            width: 48%;  /* Set width for small buttons, ensuring they stay side by side */
+            height: 100%;  /* Fill the height */
+            background-color: black;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0;
+            border: 3px solid gray;
+            position: relative;  /* Ensure title positioning inside the button */
+        }
+
+        .small-recent-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* Ensure images cover the button area without distortion */
+        }
+
+        .small-recent-button:hover {
+            border: 3px solid yellow;
+        }
+
+        .small-recent-button img:hover {
+            opacity: 1;
+        }
+
+        .big-recent-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* Prevent the image from being cut off */
+        }
+
+        .homeButtonTitle {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 14px;  /* Adjusted font size */
+            font-weight: bold;
+            text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
+            max-width: 80%;  /* Limit width to prevent overflow */
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Game Buttons -->
+    <div class="game-buttons">
+        <button class="homeButton" id="slope" onclick="updateRecentlyPlayed('Slope', 'https://gjhacked.github.io/assets/slope-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/slope';">
+            <img src="https://gjhacked.github.io/assets/slope-logo.png" width="200" height="200" />
+            <p class="homeButtonTitle">Slope</p>
+        </button>
+        <button class="homeButton" id="retro-bowl" onclick="updateRecentlyPlayed('Retro Bowl', 'https://gjhacked.github.io/assets/retro-bowl-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/retro-bowl';">
+            <img src="https://gjhacked.github.io/assets/retro-bowl-logo.png" width="200" height="200" />
+            <p class="homeButtonTitle">Retro Bowl</p>
+        </button>
+        <button class="homeButton" id="drive-mad" onclick="updateRecentlyPlayed('Drive Mad', 'https://gjhacked.github.io/assets/drive-mad-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/drive-mad';">
+            <img src="https://gjhacked.github.io/assets/drive-mad-logo.png" width="200" height="200" />
+            <p class="homeButtonTitle">Drive Mad</p>
+        </button>
+        <button class="homeButton" id="tag" onclick="updateRecentlyPlayed('TAG', 'https://gjhacked.github.io/assets/tag-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/tag';">
+            <img src="https://gjhacked.github.io/assets/tag-logo.jpeg" width="200" height="200" />
+            <p class="homeButtonTitle">TAG</p>
+        </button>
+        <button class="homeButton" id="1v1lol" onclick="updateRecentlyPlayed('1v1.lol', 'https://gjhacked.github.io/assets/1v1-lol-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/1v1lol';">
+            <img src="https://gjhacked.github.io/assets/1v1-lol-logo.jpg" width="200" height="220" />
+            <p class="homeButtonTitle">1v1.lol</p>
+        </button>
+        <a href="https://anonymousbirb5100.github.io/slope">
+            <button class="homeButton" id="slope" onclick="updateRecentlyPlayed('Slope', 'https://gjhacked.github.io/assets/slope-logo.png')">
+                <img src="https://gjhacked.github.io/assets/slope-logo.png" width="200" height="200" />
+                <p class="homeButtonTitle">Slope</p>
+            </button>
+        </a>        
+    </div>
+
+   <!-- Recently Played Section -->
+<div class="recently-played">
+    <p class="recently-played-title">Pick Up Where You Left Off</p>
+    <div class="recent-buttons">
+        <button class="big-recent-button" id="recent-big" onclick="window.location.href = recentlyPlayedURLs[0];">
+            <img id="recent-big-img" src="" alt="" />
+            <p class="homeButtonTitle" id="recent-big-title"></p>
+        </button>
+        <div class="small-recent-buttons">
+            <button class="small-recent-button" id="recent-small-1" onclick="window.location.href = recentlyPlayedURLs[1];">
+                <img id="recent-small-1-img" src="" alt="" />
+                <p class="homeButtonTitle" id="recent-small-1-title"></p>
+            </button>
+            <button class="small-recent-button" id="recent-small-2" onclick="window.location.href = recentlyPlayedURLs[2];">
+                <img id="recent-small-2-img" src="" alt="" />
+                <p class="homeButtonTitle" id="recent-small-2-title"></p>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Check if there's already data in localStorage, otherwise use default values
+    let recentlyPlayed = JSON.parse(localStorage.getItem('recentlyPlayed')) || ['Slope', 'Retro Bowl', 'Drive Mad'];
+    let recentlyPlayedImages = JSON.parse(localStorage.getItem('recentlyPlayedImages')) || [
+        'https://gjhacked.github.io/assets/slope-logo.png',
+        'https://gjhacked.github.io/assets/retro-bowl-logo.png',
+        'https://gjhacked.github.io/assets/drive-mad-logo.png'
+    ];
+    let recentlyPlayedURLs = JSON.parse(localStorage.getItem('recentlyPlayedURLs')) || [
+        'https://anonymousbirb5100.github.io/slope',
+        'https://anonymousbirb5100.github.io/retro-bowl',
+        'https://anonymousbirb5100.github.io/drive-mad'
+    ];
+
+    // Function to update the recently played buttons
+    function updateRecentlyPlayed(gameName, gameImage, gameURL) {
+        // Check if the game is already in the recently played list
+        const gameIndex = recentlyPlayed.indexOf(gameName);
+
+        // If the game is already in the list, do nothing for the most recent button
+        if (gameIndex === 0) {
+            return;
+        }
+
+        // Remove the game if it's already in the list
+        if (gameIndex > -1) {
+            recentlyPlayed.splice(gameIndex, 1);
+            recentlyPlayedImages.splice(gameIndex, 1);
+            recentlyPlayedURLs.splice(gameIndex, 1);
+        }
+
+        // Add the new game to the front of the arrays
+        recentlyPlayed.unshift(gameName);
+        recentlyPlayedImages.unshift(gameImage);
+        recentlyPlayedURLs.unshift(gameURL);
+
+        // Limit the arrays to only 3 items
+        if (recentlyPlayed.length > 3) {
+            recentlyPlayed.pop();
+            recentlyPlayedImages.pop();
+            recentlyPlayedURLs.pop();
+        }
+
+        // Update the displayed recently played buttons
+        document.getElementById('recent-big-title').textContent = recentlyPlayed[0];
+        document.getElementById('recent-big-img').src = recentlyPlayedImages[0];
+
+        document.getElementById('recent-small-1-title').textContent = recentlyPlayed[1];
+        document.getElementById('recent-small-1-img').src = recentlyPlayedImages[1];
+
+        document.getElementById('recent-small-2-title').textContent = recentlyPlayed[2];
+        document.getElementById('recent-small-2-img').src = recentlyPlayedImages[2];
+
+        // Save the updated data to localStorage
+        localStorage.setItem('recentlyPlayed', JSON.stringify(recentlyPlayed));
+        localStorage.setItem('recentlyPlayedImages', JSON.stringify(recentlyPlayedImages));
+        localStorage.setItem('recentlyPlayedURLs', JSON.stringify(recentlyPlayedURLs));
+    }
+
+    // This function ensures that the recently played section is initialized correctly on page load
+    function initializeRecentlyPlayed() {
+        document.getElementById('recent-big-title').textContent = recentlyPlayed[0];
+        document.getElementById('recent-big-img').src = recentlyPlayedImages[0];
+
+        document.getElementById('recent-small-1-title').textContent = recentlyPlayed[1];
+        document.getElementById('recent-small-1-img').src = recentlyPlayedImages[1];
+
+        document.getElementById('recent-small-2-title').textContent = recentlyPlayed[2];
+        document.getElementById('recent-small-2-img').src = recentlyPlayedImages[2];
+    }
+
+    // Initialize on page load
+    initializeRecentlyPlayed();
+</script>
+</body>
+</html>
