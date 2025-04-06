@@ -1,1121 +1,202 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="The BirdHub is a website for unblocked games ported from GitHub.">
-        <title>BirdHub - Unblocked Online Games</title>
-        <link rel="shortcut icon" type="image/png" href="images/canvas-bird-favicon-new.png">
-        <style>
-            .all {
-                background-color:rgb(35, 35, 35);
-                color:white; 
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            .section {
-                background-color: rgb(33, 8, 65); /*Gray: 38, 38, 38*/
-                width:100%;
-                box-shadow: 0px 0px 30px rgba(0, 0, 0, 1)
-            }
-            .titlesection {
-                background-color:rgb(29, 22, 37);
-                height:250px;
-                padding-left: 200px;
-                box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.8);
-            }
-            .titlesection img {
-                filter: drop-shadow(0px 0px 30px rgb(123, 0, 255))
-            }
-            .title {
-                font-size:90px;
-                margin:10px;
-                text-align:left;
-                text-shadow: 0px 0px 30px rgb(255, 255, 255)
-            }
-            .subtitle {
-                font-size:20px;
-                margin:10px;
-                text-align:left;
-            }
-            .bigtopic {
-                font-size:70px;
-                text-align:center;
-            }
-            .creditheader {
-                font-size:50px;
-                text-align:center;
-            }
-            .topic {
-                font-size:50px;
-                padding:0px;
-            }
-            .subtopic {
-                font-size:20px;
-            }
-            .bigbreak {
-                margin:100px;
-            }
-            .mobiletag {
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: 15px;
-                font-weight:bold;
-                float:left;
-                text-align:center;
-                width:90px;
-                margin:8px;
-                border-radius:50px;
-                color:rgb(61, 0, 65); 
-                background-color:rgb(234, 172, 234);
-            }
-            .normaltag {
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: 15px;
-                font-weight:bold;
-                float:left;
-                text-align:center;
-                width:90px;
-                margin:8px;
-                border-radius:50px;
-                color:rgb(0, 24, 84); 
-                background-color:rgb(126, 147, 213);
-            }
-            .populartag {
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: 15px;
-                font-weight:bold;
-                float:left;
-                text-align:center;
-                width:90px;
-                margin:8px;
-                border-radius:50px;
-                color:rgb(43, 0, 84); 
-                background-color:rgb(177, 126, 213);
-            }
-            .button, .newbutton, .birdbestbutton {
-                background-color:black;
-                padding:10px;
-                margin:30px;
-                border-radius:30px;
-                border:3px solid gray;
-                transition:0.5s;
-                width:360px;
-                height:400px;
-                box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
-            }
-            .button img, .newbutton img, .birdbestbutton img {
-                border-radius:20px;
-            }
-            .button:hover, .newbutton:hover, .birdbestbutton:hover {
-                border:3px solid yellow;
-                transform: scale(1.1);
-                box-shadow: 0px 0px 30px rgba(255, 255, 0, 0.8);
-                transition: 0.3s ease;
-            }
-            .newbutton {
-                border:5px double aqua;
-            }
-            .birdbestbutton {
-                border:5px double orangered;
-            }
-            .newbutton:hover {
-                border:5px double yellow;
-                box-shadow: 0px 0px 30px rgba(255, 255, 0, 0.8);
-            }
-            .birdbestbutton:hover {
-                border:5px double yellow;
-                box-shadow: 0px 0px 30px rgba(255, 255, 0, 0.8);
-            }
-            .buttontitle {
-                color:white;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: 20px;
-                font-weight:bold;
-                margin:5px;
-            }
-            .buttonsubtitle {
-                color:white;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size:14px;
-            }
-            .homeButton {
-                position: relative;
-                background-color: black;
-                text-decoration: none;
-                padding: 0px;
-                margin: 30px;
-                border-radius: 30px;
-                border: 3px solid gray;
-                width: 200px;
-                height: 200px;
-                overflow: hidden;
-                transition: transform 0.3s ease, border 0.3s ease;
-            }
-            .homeButton:hover {
-                border:3px solid yellow;
-                transition: 0.3s ease;
-                transform: scale(1.1);
-            }
-            .homeButton img {
-                width: 100%;
-                height: 100%;
-                opacity:0.4;
-                transition: opacity 0.3s ease;
-                object-fit: cover;
-            }
-            .homeButton img:hover {
-                transition:0.3s ease;
-                opacity:1;
-            }
-            .homeButton:hover img {
-                opacity: 1;
-            }
-            .homeButtonTitle {
-                position: absolute;
-                top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: white;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                opacity: 1;
-                font-size: 30px;
-                font-weight: bold;
-                text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
-            }
-            .homesection {
-                background-color: rgb(29, 29, 29);
-                width: 1200px;
-                margin: auto;
-                margin-top: 50px;
-                padding: 25px;
-                border-radius: 25px;
-                box-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
-                text-align: center;
-                max-width: 100%;  /* Prevent overflow */
-                box-sizing: border-box;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-            .homesection .button-container {
-                display: flex;
-                flex-direction: row; /* Layout buttons horizontally */
-                justify-content: center; /* Center the buttons horizontally */
-                gap: 5px; /* Space between buttons */
-                flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
-                margin-top: 20px; /* Space between subtitle and buttons */
-            }       
-            .abouttext {
-                color:white;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size:18px;
-                padding:10px;
-            }
-            .titleimg {
-                width:300px;
-                height:230px;
-                float:left;
-            }
-            /*Code for header */
-            .header {
-                position: fixed;
-                top: -100px; /* Initially off-screen */
-                width: 100%;
-                height:90px;
-                background-color: rgba(0, 0, 0, 0.8);
-                color: white;
-                z-index:1000;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                transition: top 0.3s;
-            }
-            .header img {
-                width:130px;
-                height:100px;
-            }
-            .header h3 {
-                font-size:50px;
-                float:left;
-            }
-            .hidden {
-            top: -100px; /* Keeps the header hidden off-screen initially */
-            }
-            header nav ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                display: flex;
-            }
-
-            header nav ul li {
-                margin-right: 20px;
-                margin-top: 10px;
-            }
-
-            header nav ul li a {
-                color:white;
-                text-decoration: none;
-            }
-            header nav ul li a:hover {
-                color: yellow;
-            }
-            /*End code for header */
-            /*Recently Played CSS*/
-            .recently-played {
-            width: 700px;
-            height: 350px;
-            background-color: rgb(48, 43, 57);
-            margin-top: 40px;
-            margin-left: 250px;
+        .homeButton {
             position: relative;
+            background-color: black;
+            padding: 0px;
+            margin: 30px;
             border-radius: 30px;
-            padding: 20px;
+            border: 3px solid gray;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border 0.3s ease;
+        }
+
+        .homeButton:hover {
+            border: 3px solid yellow;
+            transform: scale(1.1);
+        }
+
+        .homeButton img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            object-fit: cover;
+        }
+
+        .homeButton img:hover {
+            opacity: 1;
+        }
+
+        .homeButtonTitle {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;  /* Adjust font size */
+            font-weight: bold;
+            text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
+            max-width: 80%;  /* Limit width to prevent overflow */
+            text-align: center;
+        }
+
+        .recently-played {
+            width: 300px;  /* Adjust width to make it square */
+            height: 300px;  /* Set fixed height to make it square */
+            background-color: black;
+            margin-top: 40px;
+            position: relative;
+            border-radius: 10px;
+            padding: 10px;
             box-sizing: border-box;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
         }
 
         .recently-played-title {
             position: absolute;
             top: 10px;
-            right: 30px;
+            right: 10px;
             color: white;
-            font-size: 40px;
+            font-size: 18px;
             font-weight: bold;
-            margin:25px;
-            text-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
         }
+
         .recent-buttons {
             display: flex;
             height: 100%;
+            flex-direction: column;  /* Stack buttons vertically */
             justify-content: space-between;
             padding: 10px 0;
-            box-sizing: border-box;
         }
+
         .big-recent-button {
-            width:500px;
-            height: 300px;
+            width: 100%;  /* Ensure large button takes up the full width */
+            height: 60%;  /* Adjust the height ratio */
             background-color: black;
-            border-radius: 50px;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
-            justify-content: center;
-            align-items: center;
             border: 3px solid gray;
-            transition: 0.3s ease;
         }
-        .big-recent-button:hover {
-            border: 3px solid yellow;
-            box-shadow: 0px 0px 30px rgba(255, 255, 0, 1);
-            transform: scale(1.1);
-            transition: 0.3s ease;
-        }
-        .big-recent-button img:hover {
-            opacity: 1;
-            transition: 0.3s ease;
-        }
-        .big-recent-button:hover img {
-            opacity: 1;
-        }
+
         .small-recent-buttons {
             display: flex;
-            width: 100%;
-            flex-direction: bottom;
-            align-items: flex-end;
+            justify-content: space-between;  /* Align buttons side by side */
+            height: 40%;  /* Adjust the height ratio */
         }
 
         .small-recent-button {
-            width: 150px;
-            height: 150px;
+            width: 48%;  /* Set width for small buttons, ensuring they stay side by side */
+            height: 100%;  /* Fill the height */
             background-color: black;
-            border-radius: 25px;
+            border-radius: 10px;
             overflow: hidden;
-            margin: 20px;
-            transition: 0.3s ease;
+            margin-bottom: 0;
             border: 3px solid gray;
             position: relative;  /* Ensure title positioning inside the button */
         }
 
         .small-recent-button img {
-            position: relative;
-            width: 110%;
-            height: 110%;
-            right: 8px;
-            object-fit: cover;  /* Ensure images cover the button area without distortion */
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
-        }
-        .small-recent-button:hover {
-            border: 3px solid yellow;
-            transform: scale(1.1);
-            box-shadow: 0px 0px 20px rgba(255, 255, 0, 1);
-            transition: 0.3s ease;
-        }
-        .small-recent-button img:hover {
-            opacity: 1;
-            transition: 0.3s ease;
-        }
-        .small-recent-button:hover img {
-            opacity: 1;
-        }
-        .big-recent-button img {
-            position: relative;
-            width: 110%;
-            height: 110%;
-            right: 20px; /* Offset 20px from the left */
-            bottom: 10px;  /* Offset 10px from the top */
-            object-fit: cover;  /* Prevent the image from being cut off */
-            opacity: 0.4;
-            transition: 0.3s ease;
-        }
-        .recentButtonTitle {
-            position: absolute;
-                top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: white;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                opacity: 1;
-                font-size: 40px;
-                font-weight: bold;
-                text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
-        }
-
-
-         /* Settings button */
-         .settings-button {
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .settings-button img {
-            width: 30px; /* Size of the icon inside the button */
-            height: 30px;
-        }
-
-        /* Pop-up styling */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 300px;
-            background-color: rgb(0, 0, 0);
-            border:8px double gray;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            padding: 20px;
-            border-radius: 25px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            object-fit: cover;  /* Ensure images cover the button area without distortion */
         }
 
-        /* Alert and Cancel buttons */
-        .alert-button, .cancel-button {
-            padding: 10px 20px;
-            background-color: #007BFF;
+        .small-recent-button:hover {
+            border: 3px solid yellow;
+        }
+
+        .small-recent-button img:hover {
+            opacity: 1;
+        }
+
+        .big-recent-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* Prevent the image from being cut off */
+        }
+
+        .homeButtonTitle {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             color: white;
-            border: none;
-            border-radius: 10px;
-            border: 3px solid rgb(0, 89, 145);
-            cursor: pointer;
-            text-transform: uppercase;
-            margin: 10px;
-            transition: 0.3s ease;
-        }
-
-        .cancel-button {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            background-color: black;
-            border-radius:10px;
-            border:3px solid rgb(90, 90, 90);
-        }
-
-        /* Disable page scrolling and interaction */
-        .no-scroll {
-            overflow: hidden;
-        }
-        .mode-button {
-            font-size:20px;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 14px;  /* Adjusted font size */
+            font-weight: bold;
+            text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
+            max-width: 80%;  /* Limit width to prevent overflow */
             text-align: center;
-            background-color: rgb(255, 153, 0);
-            border: 3px solid rgb(150, 83, 0);
-            color: white;
-            border-radius: 5px;
-            width: 130%;
-            cursor: pointer;
-            transition: 0.3s ease;
         }
-        .mode-button:hover, .alert-button:hover, .cancel-button:hover {
-            transform: scale(1.2);
-        }
-        .visibilitySection {
-            margin-right:30px;
-        }
-        .visibilitySection img {
-            width:60px;
-            height:40px;
-        }
-        .visibilityButton {
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.8);
-            border: none;
-            transition: 0.3s ease;
-        }
-        .visibilityButton:hover {
-            transform: scale(1.2);
-            transition: 0.3s ease;
-        }
-        </style>
-    </head>
-    <body class="all">
-        <header id="header" class="hidden, header">
-            <img src="https://raw.githubusercontent.com/AnonymousBirb5100/anonymousbirb5100.github.io/refs/heads/main/images/canvas-bird-favicon-new.png" alt="Logo">
-            <h3>The <span style="color:blue;">Bird</span>Hub</h3>
-            <!--Button here to hide header until refresh-->
-            <!--Search bar-->
-            <nav>
-                <ul>
-                    <div id="visibilitySection" class="visibilitySection">
-                        <button class="visibilityButton" onclick="hideHeader()">
-                            <img id="visibilityImg" src="https://raw.githubusercontent.com/AnonymousBirb5100/anonymousbirb5100.github.io/refs/heads/main/images/visible-icon.png"/>
-                        </button>
-                    </div>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#browse">Browse</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
-            <!--<div class="settings-button" id="settings-button">
-                <img src="https://via.placeholder.com/30" alt="Settings Icon">
-            </div> -->
-        </header>
-    
-        <!-- Pop-up and Overlay -->
-        <div class="overlay" id="overlay"></div>
-        <div class="popup" id="popup">
-            <h1>Settings</h1>
-            <div style="display: inline-block;">
-                <h3>Dark Mode:</h3>
-            </div>
-            <div style="display: inline-block">
-                <button class="mode-button" id="mode-button">On</button>
-            </div>
-            </br>
-            <div style="height: 50px;" id="divider"></div>
-            <button class="cancel-button" id="cancel-button">Cancel</button>
-            <button class="alert-button" id="alert-button">Save Changes</button> <!--Alert is save changes-->
-        </div>
 
-
-        <div  class="titlesection">
-            <img class="titleimg" src="https://raw.githubusercontent.com/AnonymousBirb5100/anonymousbirb5100.github.io/refs/heads/main/images/canvas-bird-favicon-new.png" alt="BirdHub Logo"/>
-            </br>
-            <h1 class="title"><span>The </span><span style="color:blue; text-shadow: 0px 0px 30px rgb(0, 0, 255)">Bird</span>hub</h1>
-            <p class="subtitle">Unblocked Online Games</p>
-        </div>
-        <div style="height: 50px;" id="divider"></div>
-        <div class="section">
-            <div style="height: 50px;" id="divider"></div>
-            <h2 class="bigtopic" id="home">Home</h2>
-            <!--<div style="width: 900px; padding: 1px; border-radius: 20px; margin: auto; background-color:red; text-align: center">
-                <p style="font-size:20px;">Settings have been added! For now, it is just to change from dark to light mode. It is acessible on the header.</p>
-            </div> NOTIFICATIONS-->
-        <!-- Recently Played Section -->
-        <div class="recently-played">
-            <p class="recently-played-title">Pick Up Where You</br>
-                Left Off</p>
-            <div class="recent-buttons">
-                <button class="big-recent-button" id="recent-big" onclick="window.location.href = recentlyPlayedURLs[0];">
-                    <img id="recent-big-img" src="" alt="" />
-                    <p class="homeButtonTitle" style="font-size:50px;" id="recent-big-title"></p>
-                </button>
-                <div class="small-recent-buttons">
-                    <button class="small-recent-button" id="recent-small-1" onclick="window.location.href = recentlyPlayedURLs[1];">
-                        <img id="recent-small-1-img" src="" alt="" />
-                        <p class="homeButtonTitle" id="recent-small-1-title"></p>
-                    </button>
-                    <button class="small-recent-button" id="recent-small-2" onclick="window.location.href = recentlyPlayedURLs[2];">
-                        <img id="recent-small-2-img" src="" alt="" />
-                        <p class="homeButtonTitle" id="recent-small-2-title"></p>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!--End recently played-->
-
-        <div class="homesection">
-        <p class="topic" style="color:aqua; font-weight:bold; text-align:center; text-shadow: 0px 0px 30px rgba(0, 255, 255, 1)">New</p>
-        <p class="subtopic" style="color:aqua; text-align: center;">New games that have been added onto BirdHub.</p>
-        <div class="button-container">
-        <a href="https://anonymousbirb5100.github.io/grindcraft">
-            <button class="homeButton" style="border:5px solid aqua; box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Grindcraft', 'https://raw.githubusercontent.com/AnonymousBirb5100/grindcraft/refs/heads/main/grindcraft-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/grindcraft';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/grindcraft/refs/heads/main/grindcraft-logo.jpg"/>
-                <p class="homeButtonTitle">Grindcraft</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/papas-pizzeria">
-            <button class="homeButton" style="border:5px solid aqua; box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Papas Pizzeria', 'https://raw.githubusercontent.com/AnonymousBirb5100/papas-pizzeria/refs/heads/main/papas-pizzeria-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/papas-pizzeria';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/papas-pizzeria/refs/heads/main/papas-pizzeria-logo.jpeg"/>
-                <p class="homeButtonTitle">Papa's Pizzeria</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/chrome-dinosaur-game">
-            <button class="homeButton" style="border:5px solid aqua; box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Chrome Dinosaur Game', 'https://raw.githubusercontent.com/AnonymousBirb5100/chrome-dinosaur-game/refs/heads/gh-pages/chrome-dino-game-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/chrome-dinosaur-game';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/chrome-dinosaur-game/refs/heads/gh-pages/chrome-dino-game-logo.png"/>
-                <p class="homeButtonTitle">Chrome Dinosaur Game</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/subway-surfers">
-            <button class="homeButton" style="border:5px solid aqua; box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Subway Surfers', 'https://raw.githubusercontent.com/AnonymousBirb5100/subway-surfers/refs/heads/main/subway-surfers-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/subway-surfers';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/subway-surfers/refs/heads/main/subway-surfers-logo.jpeg"/>
-                <p class="homeButtonTitle">Subway Surfers</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/awesome-tanks-2">
-            <button class="homeButton" style="border:5px solid aqua; box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Awesome Tanks 2', 'https://raw.githubusercontent.com/AnonymousBirb5100/awesome-tanks-2/refs/heads/main/awesome-tanks-2-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/awesome-tanks-2';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/awesome-tanks-2/refs/heads/main/awesome-tanks-2-logo.jpeg">
-                <p class="homeButtonTitle">Awesome Tanks 2</p>
-            </button>
-        </a>
-        </div>
-        </div>
-
-        <div class="homesection">
-            <p class="topic" style="color:orangered; font-weight:bold; text-shadow: 0px 0px 30px rgba(255, 69, 0, 1)">Birdhub's Best</p>
-            <p class="subtopic" style="color:orangered;">The most played games on the BirdHub.</p>
-        <div class="button-container">
-        <a href="https://anonymousbirb5100.github.io/drive-mad">
-            <button class="homeButton" style="border:5px solid orangered; box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);"
-            onclick="updateRecentlyPlayed('Drive Mad', 'https://raw.githubusercontent.com/AnonymousBirb5100/drive-mad/refs/heads/main/drive-mad-logo-web.png'); window.location.href = 'https://anonymousbirb5100.github.io/drive-mad';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/drive-mad/refs/heads/main/drive-mad-logo-web.png"/>
-                <p class="homeButtonTitle">Drive Mad</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/tag">
-            <button class="homeButton" style="border:5px solid orangered; box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);"
-            onclick="updateRecentlyPlayed('Tag', 'https://raw.githubusercontent.com/AnonymousBirb5100/tag/refs/heads/main/tag-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/tag';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/tag/refs/heads/main/tag-logo.jpeg"/>
-                <p class="homeButtonTitle">TAG</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/polytrack">
-            <button class="homeButton" style="border:5px solid orangered; box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);"
-            onclick="updateRecentlyPlayed('Polytrack', 'https://raw.githubusercontent.com/AnonymousBirb5100/polytrack/refs/heads/main/polytrack-logo.avif'); window.location.href = 'https://anonymousbirb5100.github.io/polytrack';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/polytrack/refs/heads/main/polytrack-logo.avif"/>
-                <p class="homeButtonTitle">Polytrack</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/achievement-unlocked">
-            <button class="homeButton" style="border:5px solid orangered; box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);"
-            onclick="updateRecentlyPlayed('Achievement Unlocked', 'https://raw.githubusercontent.com/AnonymousBirb5100/achievement-unlocked/refs/heads/main/achievement-unlocked-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/achievement-unlocked';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/achievement-unlocked/refs/heads/main/achievement-unlocked-logo.png"/>
-                <p class="homeButtonTitle">Achievement Unlocked</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/learn-2-fly">
-            <button class="homeButton" style="border:5px solid orangered; box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);"
-            onclick="updateRecentlyPlayed('Learn To Fly 2', 'https://raw.githubusercontent.com/AnonymousBirb5100/learn-2-fly/refs/heads/main/learn-2-fly-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/learn-2-fly';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/learn-2-fly/refs/heads/main/learn-2-fly-logo.jpeg"/>
-                <p class="homeButtonTitle">Learn to Fly 2</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/run3">
-            <button class="homeButton" style="border:5px solid orangered; box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);"
-            onclick="updateRecentlyPlayed('Run 3', 'https://raw.githubusercontent.com/AnonymousBirb5100/run3/refs/heads/main/run-3-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/run3';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/run3/refs/heads/main/run-3-logo.jpg"/>
-                <p class="homeButtonTitle">Run 3</p>
-            </button>
-        </a>
-        </div>
-        </div>
-
-        <div class="homesection">
-        <p class="topic" style="color:rgb(162, 0, 255); font-weight:bold; text-shadow: 0px 0px 30px rgb(162, 0, 255)">Popular</p>
-        <p class="subtopic" style="color:rgb(162, 0, 255);">Games on the BirdHub that have seen many plays.</p>
-        <div class="button-container">
-        <a href="https://anonymousbirb5100.github.io/soccer-random">
-            <button class="homeButton" style="border:5px solid rgb(162, 0, 255); box-shadow: 0px 0px 30px rgba(162, 0, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Soccer Random', 'https://raw.githubusercontent.com/AnonymousBirb5100/soccer-random/refs/heads/main/soccer-random-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/soccer-random';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/soccer-random/refs/heads/main/soccer-random-logo.png"/>
-                <p class="homeButtonTitle">Soccer Random</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/geometry-dash">
-            <button class="homeButton" style="border:5px solid rgb(162, 0, 255); box-shadow: 0px 0px 30px rgba(162, 0, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Geometry Dash', 'https://raw.githubusercontent.com/AnonymousBirb5100/geometry-dash/refs/heads/main/geometry-dash-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/geometry-dash';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/geometry-dash/refs/heads/main/geometry-dash-logo.png"/>
-                <p class="homeButtonTitle">Geometry Dash</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/moto-x3m">
-            <button class="homeButton" style="border:5px solid rgb(162, 0, 255); box-shadow: 0px 0px 30px rgba(162, 0, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Moto X3M', 'https://raw.githubusercontent.com/AnonymousBirb5100/moto-x3m/refs/heads/main/moto-x3m-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/grindcraft';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/moto-x3m/refs/heads/main/moto-x3m-logo.png"/>
-                <p class="homeButtonTitle">Moto X3M</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/idle-breakout">
-            <button class="homeButton" style="border:5px solid rgb(162, 0, 255); box-shadow: 0px 0px 30px rgba(162, 0, 255, 0.8);"
-            onclick="updateRecentlyPlayed('Idle Breakout', 'https://raw.githubusercontent.com/AnonymousBirb5100/idle-breakout/refs/heads/main/idle-breakout-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/idle-breakout';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/idle-breakout/refs/heads/main/idle-breakout-logo.png"/>
-                <p class="homeButtonTitle">Idle Breakout</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/ovo">
-            <button class="homeButton" style="border:5px solid rgb(162, 0, 255); box-shadow: 0px 0px 30px rgba(162, 0, 255, 0.8);"
-            onclick="updateRecentlyPlayed('OvO', 'https://raw.githubusercontent.com/AnonymousBirb5100/ovo/refs/heads/main/ovo.png'); window.location.href = 'https://anonymousbirb5100.github.io/ovo';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/ovo/refs/heads/main/ovo.png"/>
-                <p class="homeButtonTitle">OvO</p>
-            </button>
-        </a>
-    </br>
-    </div>
-    </div>
-    <div style="height: 50px;" id="divider"></div>
-    </div>
-
-    <div style="height: 50px;" id="divider"></div>
-    <div class="section">
-        <div style="height: 50px;" id="divider"></div>
-        <h2 class="bigtopic" id="browse">Browse</h2>
+    </style>
+</head>
+<body>
+    <!-- Game Buttons -->
+    <div class="game-buttons">
+        <button class="homeButton" id="slope" onclick="updateRecentlyPlayed('Slope', 'https://gjhacked.github.io/assets/slope-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/slope';">
+            <img src="https://gjhacked.github.io/assets/slope-logo.png" width="200" height="200" />
+            <p class="homeButtonTitle">Slope</p>
+        </button>
+        <button class="homeButton" id="retro-bowl" onclick="updateRecentlyPlayed('Retro Bowl', 'https://gjhacked.github.io/assets/retro-bowl-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/retro-bowl';">
+            <img src="https://gjhacked.github.io/assets/retro-bowl-logo.png" width="200" height="200" />
+            <p class="homeButtonTitle">Retro Bowl</p>
+        </button>
+        <button class="homeButton" id="drive-mad" onclick="updateRecentlyPlayed('Drive Mad', 'https://gjhacked.github.io/assets/drive-mad-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/drive-mad';">
+            <img src="https://gjhacked.github.io/assets/drive-mad-logo.png" width="200" height="200" />
+            <p class="homeButtonTitle">Drive Mad</p>
+        </button>
+        <button class="homeButton" id="tag" onclick="updateRecentlyPlayed('TAG', 'https://gjhacked.github.io/assets/tag-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/tag';">
+            <img src="https://gjhacked.github.io/assets/tag-logo.jpeg" width="200" height="200" />
+            <p class="homeButtonTitle">TAG</p>
+        </button>
+        <button class="homeButton" id="1v1lol" onclick="updateRecentlyPlayed('1v1.lol', 'https://gjhacked.github.io/assets/1v1-lol-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/1v1lol';">
+            <img src="https://gjhacked.github.io/assets/1v1-lol-logo.jpg" width="200" height="220" />
+            <p class="homeButtonTitle">1v1.lol</p>
+        </button>
         <a href="https://anonymousbirb5100.github.io/slope">
-            <button class="button" id="slope">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/slope/refs/heads/main/slope-logo.png" width="200" length="200"
-                onclick="updateRecentlyPlayed('Slope', 'https://raw.githubusercontent.com/AnonymousBirb5100/slope/refs/heads/main/slope-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/slope';"/>
-                <p class="buttontitle">Slope</p>
-                <p class="buttonsubtitle">Slope is an exciting endless-runner style game
-                     where you pilot your ball through various obstacles in a
-                     neon-themed landscape.</br>
-                    </p>
-                <p class="normaltag">Timing</p>
-                <p class="normaltag">Racing</p>
-                <p class="normaltag">Action</p>
+            <button class="homeButton" id="slope" onclick="updateRecentlyPlayed('Slope', 'https://gjhacked.github.io/assets/slope-logo.png')">
+                <img src="https://gjhacked.github.io/assets/slope-logo.png" width="200" height="200" />
+                <p class="homeButtonTitle">Slope</p>
             </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/retro-bowl">
-            <button class="button"id="retro-bowl"
-            onclick="updateRecentlyPlayed('Retro Bowl', 'https://raw.githubusercontent.com/AnonymousBirb5100/retro-bowl/refs/heads/main/retro-bowl-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/retro-bowl';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/retro-bowl/refs/heads/main/retro-bowl-logo.png" width="200" length="200"/>
-                <p class="buttontitle">Retro Bowl</p>
-                <p class="buttonsubtitle">Retro Bowl is an American style football game
-                    created by New Star Games. Are you ready to manage your
-                    dream team into victory?</p>
-                    <p class="normaltag">Strategy</p>
-                    <p class="normaltag">Sports</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/drive-mad">
-            <button class="button, birdbestbutton" id="drive-mad"
-            onclick="updateRecentlyPlayed('Drive Mad', 'https://raw.githubusercontent.com/AnonymousBirb5100/drive-mad/refs/heads/main/drive-mad-logo-web.png'); window.location.href = 'https://anonymousbirb5100.github.io/drive-mad';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/drive-mad/refs/heads/main/drive-mad-logo-web.png" width="200" length="200"/>
-                <p class="buttontitle"><span style="color:orangered;">BirdHub's Best! </span>Drive Mad</p>
-                <p class="buttonsubtitle">Drive silly cars at high speeds in dangerous terrain.
-                    Oh, and you can't steer. Good luck!</br>
-                </p>
-                <p class="mobiletag">Mobile</p>
-                <p class="normaltag">Physics</p>
-                <p class="normaltag">Racing</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/tag">
-            <button class="button, birdbestbutton" id="tag"
-            onclick="updateRecentlyPlayed('Tag', 'https://raw.githubusercontent.com/AnonymousBirb5100/tag/refs/heads/main/tag-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/tag';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/tag/refs/heads/main/tag-logo.jpeg" width="200" length="200"/>
-                <p class="buttontitle"><span style="color:orangered;">BirdHub's Best! </span>TAG</p>
-                <p class="buttonsubtitle">Parkour and dash across platforms to escape the "it" in Tag,
-                     a classic local multiplayer game.
-                </p>
-                <p class="normaltag">Multiplayer</p>
-                <p class="normaltag">Platformer</p>
-                <p class="normaltag">Action</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/1v1lol">
-            <button class="button"
-            onclick="updateRecentlyPlayed('1v1.lol', 'https://raw.githubusercontent.com/AnonymousBirb5100/1v1lol/refs/heads/main/1v1-lol-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/1v1lol';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/1v1lol/refs/heads/main/1v1-lol-logo.jpg" width="200" height="220"/>
-                <p class="buttontitle">1v1.lol</p>
-                <p class="buttonsubtitle">Compete in many different gamemodes
-                    and defeat your rivals in this fast-paced third-person 
-                    shooter game!</br>
-                </p>
-                <p class="normaltag">Multiplayer</p>
-                <p class="normaltag">Shooter</p>
-                <p class="normaltag">Open-World</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/minecraft">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Minecraft', 'https://raw.githubusercontent.com/AnonymousBirb5100/minecraft/refs/heads/main/minecraft-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/minecraft';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/minecraft/refs/heads/main/minecraft-logo.jpeg" width="200" height="200"/>
-                <p class="buttontitle">Minecraft</p>
-                <p class="buttonsubtitle">Adventure through an endless world or
-                    build your greatest creations in this port of the world-famous
-                    3D sandbox game.
-                </p>
-                <p class="normaltag">Sandbox</p>
-                <p class="normaltag">Open-World</p>
-                <p class="normaltag">Multiplayer</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/soccer-random">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Soccer Random', 'https://raw.githubusercontent.com/AnonymousBirb5100/soccer-random/refs/heads/main/soccer-random-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/soccer-random';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/soccer-random/refs/heads/main/soccer-random-logo.png" width="200" height="200"/>
-                <p class="buttontitle">Soccer Random</p>
-                <p class="buttonsubtitle">Soccer has never been more random. Control
-                     two people with just one button in this sure-to-make-you-laugh game!
-                </p>
-                <p class="populartag">Popular</p>
-                <p class="normaltag">Multiplayer</p>
-                <p class="normaltag">Sports</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/basketball-random">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Basketball Random', 'https://raw.githubusercontent.com/AnonymousBirb5100/basketball-random/refs/heads/main/basketball-random-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/basketball-random';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/basketball-random/refs/heads/main/basketball-random-logo.jpeg" width="200" height="200"/>
-                <p class="buttontitle">Basketball Random</p>
-                <p class="buttonsubtitle">Basket Random is a 2-player retro pixel
-                    game with ragdoll physics. Every new round, changing fields,
-                     changing players and changing balls will surprise you!
-                </p>
-                <p class="normaltag">Multiplayer</p>
-                <p class="normaltag">Sports</p>
-                <p class="normaltag">Physics</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/polytrack">
-            <button class="button, birdbestbutton"
-            onclick="updateRecentlyPlayed('Polytrack', 'https://raw.githubusercontent.com/AnonymousBirb5100/polytrack/refs/heads/main/polytrack-logo.avif'); window.location.href = 'https://anonymousbirb5100.github.io/polytrack';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/polytrack/refs/heads/main/polytrack-logo.avif" width="200" height="200"/>
-                <p class="buttontitle"><span style="color:orangered;">BirdHub's Best! </span>Polytrack</p>
-                <p class="buttonsubtitle">In this 3D racing game, control your
-                     racecar at high speeds through 13 open-world courses
-                      in a game that will be sure to test your timing skills.
-                <p class="mobiletag">Mobile</p>
-                <p class="normaltag">Racing</p>
-                <p class="normaltag">Timing</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/geometry-dash">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Geometry Dash', 'https://raw.githubusercontent.com/AnonymousBirb5100/geometry-dash/refs/heads/main/geometry-dash-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/geometry-dash';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/geometry-dash/refs/heads/main/geometry-dash-logo.png" width="200" height="200"/>
-                <p class="buttontitle">Geometry Dash</p>
-                <p class="buttonsubtitle">Geometry Dash is a side-scrolling rhythm game. Jump,
-                    fly, flip, and hop through 15 different levels synced to amazing music!</p>
-                    <p class="mobiletag">Mobile</p>
-                    <p class="populartag">Popular</p>
-                    <p class="normaltag">Music</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/moto-x3m">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Moto X3M', 'https://raw.githubusercontent.com/AnonymousBirb5100/moto-x3m/refs/heads/main/moto-x3m-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/moto-x3m';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/moto-x3m/refs/heads/main/moto-x3m-logo.png" width="200" height="200"/>
-                <p class="buttontitle">Moto X3M</p>
-                <p class="buttonsubtitle">Use the arrow keys to accelerate, brake, or flip your
-                     bike. Make it through the course as quickly as possible. Do
-                     stunts in the air to shave time off of your run!
-                </p>
-                <p class="mobiletag">Mobile</p>
-                <p class="populartag">Popular</p>
-                <p class="normaltag">Racing</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/cookie-clicker">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Cookie Clicker', 'https://raw.githubusercontent.com/AnonymousBirb5100/cookie-clicker/refs/heads/gh-pages/cookie-clicker-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/cookie-clicker';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/cookie-clicker/refs/heads/gh-pages/cookie-clicker-logo.png" width="200" height="200"/>
-                <p class="buttontitle">Cookie Clicker</p>
-                <p class="buttonsubtitle">Cookie clicker is an idle game where you make cookies
-                    to buy upgrades and build your cookie enterprise.
-                    </br>
-                </p> 
-                <p class="mobiletag">Mobile</p>
-                <p class="normaltag">Idle</p>
-                <p class="normaltag">Business</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/idle-breakout">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Idle Breakout', 'https://raw.githubusercontent.com/AnonymousBirb5100/idle-breakout/refs/heads/main/idle-breakout-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/idle-breakout';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/idle-breakout/refs/heads/main/idle-breakout-logo.png" width="200" height="200"/>
-                <p class="buttontitle">Idle Breakout</p>
-                <p class="buttonsubtitle">Build the ultimate brick-busting machine to destroy
-                     billions of bricks. Idle breakout combines classic brick
-                      breaking with an insanely addicting idle loop.
-                </p> 
-                <p class="populartag">Popular</p>
-                <p class="normaltag">Idle</p>
-                <p class="normaltag">Strategy</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/achievement-unlocked">
-            <button class="button, birdbestbutton"
-            onclick="updateRecentlyPlayed('Achievement Unlocked', 'https://raw.githubusercontent.com/AnonymousBirb5100/achievement-unlocked/refs/heads/main/achievement-unlocked-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/achievement-unlocked';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/achievement-unlocked/refs/heads/main/achievement-unlocked-logo.png" width="200" height="200"/>
-                <p class="buttontitle"><span style="color:orangered;">BirdHub's Best! </span>Achievement Unlocked</p>
-                <p class="buttonsubtitle">Achievement Unlocked is a game where you have to
-                    earn 100 achievements on one single level. This game will
-                    truly push your observation limits to the max!</p> 
-                     <p class="normaltag">Platformer</p>
-                     <p class="normaltag">Puzzle</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/learn-to-fly">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Learn To Fly', 'https://raw.githubusercontent.com/AnonymousBirb5100/learn-to-fly/refs/heads/main/learn-to-fly-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/learn-to-fly';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/learn-to-fly/refs/heads/main/learn-to-fly-logo.jpeg" width="200" height="200"/>
-                <p class="buttontitle">Learn to Fly</p>
-                <p class="buttonsubtitle">Learn to Fly is a game about a penguin who tries to
-                    fly using ridiculous gadgets. Buy upgrades and new equipment,
-                    earn money, and explore the penguin's ultimate adventure!
-                    <p class="normaltag">Stategy</p>
-                    <p class="normaltag">Physics</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/learn-2-fly">
-            <button class="button, birdbestbutton"
-            onclick="updateRecentlyPlayed('Learn 2 Fly', 'https://raw.githubusercontent.com/AnonymousBirb5100/learn-2-fly/refs/heads/main/learn-2-fly-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/learn-2-fly';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/learn-2-fly/refs/heads/main/learn-2-fly-logo.jpeg" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:orangered;">BirdHub's Best! </span>Learn to Fly 2</p>
-                <p class="buttonsubtitle">The second installment in the Learn to Fly series,
-                    launch penguins equipped with rockets, sleds, and bombs
-                    to destroy various snowy obstacles!
-                </p>
-                <p class="normaltag">Stategy</p>
-                <p class="normaltag">Physics</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/ovo">
-            <button class="button"
-            onclick="updateRecentlyPlayed('OvO', 'https://raw.githubusercontent.com/AnonymousBirb5100/ovo/refs/heads/main/ovo.png'); window.location.href = 'https://anonymousbirb5100.github.io/ovo';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/ovo/refs/heads/main/ovo.png" width="200px" height="200px"/>
-                <p class="buttontitle">OVO</p>
-                <p class="buttonsubtitle">Platform with unique physics and through many
-                    different levels in OVO, a monochromic-themed
-                     platformer game.
-                </p>
-                <p class="mobiletag">Mobile</p>
-                <p class="populartag">Popular</p>
-                <p class="normaltag">Platformer</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/bloxorz">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Bloxorz', 'https://raw.githubusercontent.com/AnonymousBirb5100/bloxorz/refs/heads/main/bloxorz-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/bloxorz';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/bloxorz/refs/heads/main/bloxorz-logo.jpg" width="200px" height="200px"/>
-                <p class="buttontitle">Bloxorz</p>
-                <p class="buttonsubtitle">Play as a rectangle slab and flip through puzzling
-                     levels. Bloxorz will be sure to confuse you!
-                </p>
-                <p class="normaltag">Puzzle</p>
-                <p class="normaltag">Strategy</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/run3">
-            <button class="birdbestbutton"
-            onclick="updateRecentlyPlayed('Run 3', 'https://raw.githubusercontent.com/AnonymousBirb5100/run3/refs/heads/main/run-3-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/run3';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/run3/refs/heads/main/run-3-logo.jpg" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:orangered;">Birdhub's Best! </span>Run 3</p>
-                <p class="buttonsubtitle">Dash in space as an alien through tunnels and wormholes in
-                     Run 3, a classic runner game.
-                </p> 
-                <p class="normaltag">Action</p>
-                <p class="normaltag">Timing</p>
-                <p class="normaltag">Racing</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/the-impossible-quiz">
-            <button class="button"
-            onclick="updateRecentlyPlayed('The Impossible Quiz', 'https://raw.githubusercontent.com/AnonymousBirb5100/the-impossible-quiz/refs/heads/main/the-impossible-quiz-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/the-impossible-quiz';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/the-impossible-quiz/refs/heads/main/the-impossible-quiz-logo.png" width="200px" height="200px"/>
-                <p class="buttontitle">The Impossible Quiz</p>
-                <p class="buttonsubtitle">The Impossible Quiz is a game packed with 150 seemingly simple questions, 
-                    but the obvious answer is almost never the right answer!
-                </p>
-                <p class="normaltag">Puzzle</p>
-                <p class="normaltag">Action</p>
-                <p class="normaltag">Strategy</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/bloons-td">
-            <button class="button"
-            onclick="updateRecentlyPlayed('Bloons TD', 'https://raw.githubusercontent.com/AnonymousBirb5100/bloons-td/refs/heads/main/bloons-td-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/bloons-td';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/bloons-td/refs/heads/main/bloons-td-logo.jpeg" width="200px" height="200px"/>
-                <p class="buttontitle">Bloons TD</p>
-                <p class="buttonsubtitle">The original Bloons Tower Defense game, earn money to summon monkeys 
-                    to destroy balloons trying to infiltrate your base.
-                </p>
-                <p class="normaltag">Strategy</p>
-                <p class="normaltag">Idle</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/grindcraft">
-            <button class="newbutton"
-            onclick="updateRecentlyPlayed('Grindcraft', 'https://raw.githubusercontent.com/AnonymousBirb5100/grindcraft/refs/heads/main/grindcraft-logo.jpg'); window.location.href = 'https://anonymousbirb5100.github.io/grindcraft';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/grindcraft/refs/heads/main/grindcraft-logo.jpg" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:aqua;">NEW! </span>Grindcraft</p>
-                <p class="buttonsubtitle">Grindcraft is Minecraft but turned into an idle game. Collect various materials 
-                    and climb the crafting ladder to create stronger items.
-                </p>
-                <p class="mobiletag">Mobile</p>
-                <p class="normaltag">Idle</p>
-                <p class="normaltag">Business</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/papas-pizzeria">
-            <button class="newbutton"
-            onclick="updateRecentlyPlayed('Papas Pizzeria', 'https://raw.githubusercontent.com/AnonymousBirb5100/papas-pizzeria/refs/heads/main/papas-pizzeria-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/papas-pizzeria';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/papas-pizzeria/refs/heads/main/papas-pizzeria-logo.jpeg" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:aqua;">NEW! </span>Papa's Pizzeria</p>
-                <p class="buttonsubtitle">Serve delicious pizzas to various customers in 
-                    this simple cooking game.
-                </p>
-                <p class="normaltag">Business</p>
-                <p class="normaltag">Idle</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/chrome-dinosaur-game">
-            <button class="newbutton"
-            onclick="updateRecentlyPlayed('Chrome Dinosaur Game', 'https://raw.githubusercontent.com/AnonymousBirb5100/chrome-dinosaur-game/refs/heads/gh-pages/chrome-dino-game-logo.png'); window.location.href = 'https://anonymousbirb5100.github.io/chrome-dinosaur-game';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/chrome-dinosaur-game/refs/heads/gh-pages/chrome-dino-game-logo.png" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:aqua;">NEW! </span>Chrome Dinosaur Game</p>
-                <p class="buttonsubtitle">Chrome Dinosaur Game is the famous no-internet game 
-                    developed by Google as an Easter egg. It has now arrived as a playable game!
-                </p>
-                <p class="normaltag">Timing</p>
-                <p class="normaltag">Strategy</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/subway-surfers">
-            <button class="newbutton"
-            onclick="updateRecentlyPlayed('Subway Surfers', 'https://raw.githubusercontent.com/AnonymousBirb5100/subway-surfers/refs/heads/main/subway-surfers-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/subway-surfers';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/subway-surfers/refs/heads/main/subway-surfers-logo.jpeg" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:aqua;">NEW! </span>Subway Surfers</p>
-                <p class="buttonsubtitle"> Leap onto trains and bound over railroads! 
-                    Subway Surfers is a very popular endless runner game.
-                </p>
-                <p class="normaltag">Action</p>
-                <p class="normaltag">Timing</p>
-                <p class="normaltag">Racing</p>
-            </button>
-        </a>
-        <a href="https://anonymousbirb5100.github.io/awesome-tanks-2">
-            <button class="newbutton"
-            onclick="updateRecentlyPlayed('Awesome Tanks 2', 'https://raw.githubusercontent.com/AnonymousBirb5100/awesome-tanks-2/refs/heads/main/awesome-tanks-2-logo.jpeg'); window.location.href = 'https://anonymousbirb5100.github.io/awesome-tanks-2';">
-                <img src="https://raw.githubusercontent.com/AnonymousBirb5100/awesome-tanks-2/refs/heads/main/awesome-tanks-2-logo.jpeg" width="200px" height="200px"/>
-                <p class="buttontitle"><span style="color:aqua;">NEW! </span>Awesome Tanks 2</p>
-                <p class="buttonsubtitle">Upgrade your weapons and tank through 15 levels in this top-down shooter game.
-                </p>
-                <p class="mobiletag">Mobile</p>
-                <p class="normaltag">Shooter</p>
-                <p class="normaltag">Action</p>
-            </button>
-        </a>
-        <h2 class="bigtopic" id="about">About</h2>
-        <div class="homesection">
-        <p class="abouttext">The BirdHub was created in February of 2025 by HanmingbirdWebDev, an branch of Hanmingbird Coperated.
-            Hanmingbird Corp.'s other branches include HanmingbirdGames, a game developing company, and BirdStore,
-            a retail store in cooperation with product design company Bear Associates. The BirdHub is designed 
-            to combat popular device security systems, such as Securly and GatLabs. This way, students can enjoy
-            gaming time in school, without the restrictions that these common security systems impose.
-        <p class="bigbreak"></p>
-        <h3 class="creditheader" style="text-shadow: 0px 0px 30px rgba(255, 255, 0, 0.8)">AnonymousBirb5100</h3>
-        <p class="creditheader, subtitle" style="text-align:center;">Head Developer</p>
-        <h3 class="creditheader" style="text-align:center; text-shadow: 0px 0px 10px rgba(255, 255, 0, 0.8);">GJ Hacked</h3>
-        <p class="creditheader, subtitle" style="text-align:center;">Co-Developer</p>
-        <h3 class="creditheader" style="text-align:center;">Shartshrek, Orple Orple</h3>
-        <p class="creditheader, subtitle" style="text-align:center;">Lead Contributors</p>
-        <h3 class="creditheader" style="text-align:center;">CC, Jay, Ache, Charels</h3>
-        <p class="creditheader, subtitle" style="text-align:center;">Contributors</p>
-        </br>
-        <h4 class="creditheader, subtitle" style="color:red; text-align:center">Please report any issues found onto
-            the anonymousbirb5100.github.io issue page, and it should get fixed soon. Thank you!</h4>
-        </br>
-        </br>
-    </div>
-    <div style="height: 50px;" id="divider"></div>
+        </a>        
     </div>
 
-    <div style="height: 50px;" id="divider"></div>
-    <p class="subtitle" style="text-align:center;">Version 1.6</br>
-        Last Updated 4/6/25</p>
-    <script>
-        //Code for BG Change
-        //const themeButton = document.getElementById("themeChanger");
-        //themeButton.addEventListener('click', function() {
-            //document.body.style.backgroundColor = "white";
-        //});
-        //Finish Code
-        const javaModeButton = document.getElementById("mode-button");
-        javaModeButton.addEventListener("click", function() {
-            if (javaModeButton.innerText == "On") {
-                javaModeButton.innerText = "Off";
-                javaModeButton.style.backgroundColor = 'rgb(255, 255, 255)';
-                javaModeButton.style.border = '3px solid rgb(0, 0, 0)';
-                javaModeButton.style.color = 'rgb(0, 0, 0)';
-            }
-            else {
-                javaModeButton.innerText = "On";
-                javaModeButton.style.backgroundColor = 'rgb(255, 153, 0)';
-                javaModeButton.style.border = '3px solid rgb(150, 83, 0)';
-                javaModeButton.style.color = 'rgb(255, 255, 255)';
-            }
-        });
-        //code for header
-        let header = document.getElementById("header");
-        let headerIsHidden = false;
+   <!-- Recently Played Section -->
+<div class="recently-played">
+    <p class="recently-played-title">Pick Up Where You Left Off</p>
+    <div class="recent-buttons">
+        <button class="big-recent-button" id="recent-big" onclick="window.location.href = recentlyPlayedURLs[0];">
+            <img id="recent-big-img" src="" alt="" />
+            <p class="homeButtonTitle" id="recent-big-title"></p>
+        </button>
+        <div class="small-recent-buttons">
+            <button class="small-recent-button" id="recent-small-1" onclick="window.location.href = recentlyPlayedURLs[1];">
+                <img id="recent-small-1-img" src="" alt="" />
+                <p class="homeButtonTitle" id="recent-small-1-title"></p>
+            </button>
+            <button class="small-recent-button" id="recent-small-2" onclick="window.location.href = recentlyPlayedURLs[2];">
+                <img id="recent-small-2-img" src="" alt="" />
+                <p class="homeButtonTitle" id="recent-small-2-title"></p>
+            </button>
+        </div>
+    </div>
+</div>
 
-        window.onscroll = function() {
-            if (headerIsHidden == false) {
-                if (window.scrollY > 100) {
-                    header.classList.remove("hidden");
-                    header.style.top = '0';  // Make sure the header is at the top of the page
-                } else {
-                    header.classList.add("hidden"); // Hide the header by adding the 'hidden' class
-                    header.style.top = '-100px';  // Keep it off-screen
-                }
-            }
-        };
-        //end code for header
-        function hideHeader() {
-            const javaVisibilityButton = document.getElementById("visibilityButton");
-            const javaVisibilityImg = document.getElementById("visibilityImg");
-            if (headerIsHidden == false) {
-                javaVisibilityImg.src = "https://raw.githubusercontent.com/AnonymousBirb5100/anonymousbirb5100.github.io/refs/heads/main/images/invisible-icon.png";
-                header.classList.add("hidden");
-                header.style.top = '-100px';
-                headerIsHidden = true;
-            }
-        }
-        //random generating games here
-
-        //code for recently played
+<script>
     // Check if there's already data in localStorage, otherwise use default values
     let recentlyPlayed = JSON.parse(localStorage.getItem('recentlyPlayed')) || ['Slope', 'Retro Bowl', 'Drive Mad'];
     let recentlyPlayedImages = JSON.parse(localStorage.getItem('recentlyPlayedImages')) || [
@@ -1188,26 +269,6 @@
 
     // Initialize on page load
     initializeRecentlyPlayed();
-
-    //Settings
-      // Show pop-up and disable page interaction
-      document.getElementById("settings-button").addEventListener("click", function() {
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-            document.body.classList.add("no-scroll");
-        });
-
-        // Alert button functionality
-        document.getElementById("alert-button").addEventListener("click", function() {
-            alert("Settings button found!");
-        });
-
-        // Cancel button functionality
-        document.getElementById("cancel-button").addEventListener("click", function() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-            document.body.classList.remove("no-scroll");
-        });
-    </script>
-    </body>
+</script>
+</body>
 </html>
