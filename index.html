@@ -5,21 +5,25 @@
     </head>
     <body>
         <h1>About:Blank Injector Test</h1>
-        <a id="openEmbed">Click Here</a>
+        <p>The previous tab should turn into another about:blank tab?</p>
         <script>
-            document.getElementById("openEmbed").addEventListener("click", function () {
-            let newWin = window.open("about:blank");
-            newWin.document.write(`
-            <html>
-                <head>
-                    <title>Embedded Website</title>
-                </head>
-                <body style="margin:0">
-                    <iframe src="https://anonymousbirb5100.github.io" style="width:100vw; height:100vh; border:none;"></iframe>
-                </body>
-            </html>
-            `);
-            });
+window.onload = function () {
+    // Open a new about:blank tab
+    let newWin = window.open("about:blank");
+
+    // Inject an iframe with your website inside the new tab
+    newWin.document.write(`
+        <html>
+        <head><title>Embedded Website</title></head>
+        <body style="margin:0">
+            <iframe src="https://anonymousbirb5100.github.io" style="width:100vw; height:100vh; border:none;"></iframe>
+        </body>
+        </html>
+    `);
+
+    // Close the original tab
+    window.close();
+};
         </script>
     </body>
 </html>
