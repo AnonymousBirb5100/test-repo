@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>About:Blank Injector Test</title>
-    </head>
-    <body>
-        <h1>About:Blank Injector Test</h1>
-        <p>The previous tab should turn into another about:blank tab?</p>
-        <script>
-window.onload = function () {
-    // Open a new about:blank tab
-    let newWin = window.open("about:blank");
+<head>
+    <title>About:Blank Injector Test</title>
+</head>
+<body>
+    <h1>About:Blank Injector Test</h1>
+    <p>This tab will become blank, and a new tab will open with the embedded site.</p>
 
-    // Write the content to the new tab
-    newWin.document.open(); // Open document stream
-    newWin.document.write(`
-        <html>
-        <head><title>Embedded Website</title></head>
-        <body style="margin:0">
-            <iframe src="https://anonymousbirb5100.github.io" style="width:100vw; height:100vh; border:none;"></iframe>
-        </body>
-        </html>
-    `);
-    newWin.document.close(); // Explicitly close the document stream
+    <script>
+        window.onload = function () {
+            // Open a new about:blank tab with the iframe
+            let newWin = window.open("about:blank", "_blank");
 
-    // Close the original tab
-    window.close();
-};
-        </script>
-    </body>
+            newWin.document.open();
+            newWin.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head><title>Embedded Website</title></head>
+                <body style="margin:0; padding:0; height:100vh;">
+                    <iframe src="https://anonymousbirb5100.github.io" style="width:100vw; height:100vh; border:none;"></iframe>
+                </body>
+                </html>
+            `);
+            newWin.document.close();
+
+            // Replace the current tab's content with a blank page
+            document.open();
+            document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head><title>Now Blank</title></head>
+                <body style="margin:0; background:#fff;">
+                    <p>This tab is now blank.</p>
+                </body>
+                </html>
+            `);
+            document.close();
+        };
+    </script>
+</body>
 </html>
